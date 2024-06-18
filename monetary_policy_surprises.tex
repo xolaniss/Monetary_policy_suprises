@@ -1,0 +1,167 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% \usepackage{hyperref}
+% \hypersetup{
+%     colorlinks,
+%     linkcolor={blue!100!black},
+%     citecolor={blue!100!black},
+%     urlcolor={blue!100!black}
+% }
+% \usepackage{apacite}
+% \usepackage[round]{natbib} 
+% \usepackage{graphicx}
+% \usepackage{float}
+% \usepackage{caption}
+% \usepackage[toc,page]{appendix}
+% \usepackage{booktabs,caption}
+% \usepackage[flushleft]{threeparttable}
+% \usepackage{tabularx}
+\usepackage{sfmath}
+\usepackage{fontspec}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+% \usepackage{xcolor}
+% \usepackage{scrextend}
+% \deffootnote[2em]{2em}{1em}{\textsuperscript{\thefootnotemark}\,}
+% \newcolumntype{Y}{>{\centering\arraybackslash}X}
+% \usepackage[a4paper]{geometry}
+% \usepackage{caption}
+% \usepackage[bottom,flushmargin,hang,multiple]{footmisc}
+% \usepackage{pdflscape}
+% \usepackage[paper=portrait,pagesize]{typearea}
+% \usepackage{rotating}
+% \usepackage{fullpage}
+% \usepackage{tabu}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[round]{natbib}
+\bibliographystyle{apalike}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  colorlinks=true,
+  linkcolor={blue!000!black},
+  filecolor={Maroon},
+  citecolor={blue!000!black},
+  urlcolor={blue!000!black},
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+
+\title{Monetary surprises paper}
+
+
+\author { Xolani Sibande\footnote{Corresponding Author.  Economic Research Department, South African Reserve Bank; Email: xolani.sibande@resbank.co.za.} \,\, 
+Özer Karagedikli\footnote{South East Asian Central Banks Research and Training (SEACEN) Centre;
+Centre for Applied Macroeconomic Analysis (CAMA);
+University of Marburg
+    Email: ozer@seacen.org.} \,\,
+Monique Reid\footnote{Economic Research Department, South African Reserve Bank; Email: monique.reid@resbank.co.za.} 
+}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+
+Ipsum
+
+\end{abstract}
+
+\noindent\textbf{Keywords}: 
+\\
+\textbf{JEL Codes}: 
+\newpage
+
+\setstretch{1.5}
+\section{Introduction}\label{introduction}
+
+\section{Methodology}\label{methodology}
+
+\section{Data}\label{data}
+
+\section{Empirical Results}\label{empirical-results}
+
+\section{Conclusion}\label{conclusion}
+
+\newpage
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\setcounter{section}{0}
+\renewcommand{\thesection}{\Alph{section}}
+
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+
+\renewcommand\refname{Appendix}
+  \bibliography{references.bib}
+
+\end{document}
