@@ -105,6 +105,18 @@
 % \usepackage{rotating}
 % \usepackage{fullpage}
 % \usepackage{tabu}
+\usepackage{fontspec}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{colortbl}
+\usepackage{hhline}
+\newlength\Oldarrayrulewidth
+\newlength\Oldtabcolsep
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{wrapfig}
 \KOMAoption{captions}{tableheading}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
@@ -173,13 +185,13 @@
 \title{Monetary surprises paper}
 
 
-\author { Xolani Sibande\footnote{Corresponding Author.  Economic Research Department, South African Reserve Bank; Email: xolani.sibande@resbank.co.za.} \,\, 
-Özer Karagedikli\footnote{South East Asian Central Banks Research and Training (SEACEN) Centre;
-Centre for Applied Macroeconomic Analysis (CAMA);
-University of Marburg
-    Email: ozer@seacen.org.} \,\,
-Monique Reid\footnote{Economic Research Department, South African Reserve Bank; Email: monique.reid@resbank.co.za.} 
-}
+% \author { Xolani Sibande\footnote{Corresponding Author.  Economic Research Department, South African Reserve Bank; Email: xolani.sibande@resbank.co.za.} \,\, 
+% Özer Karagedikli\footnote{South East Asian Central Banks Research and Training (SEACEN) Centre;
+% Centre for Applied Macroeconomic Analysis (CAMA);
+% University of Marburg
+%     Email: ozer@seacen.org.} \,\,
+% Monique Reid\footnote{Economic Research Department, South African Reserve Bank; Email: monique.reid@resbank.co.za.} 
+% }
 \date{\today}
 \maketitle
 
@@ -196,6 +208,12 @@ Ipsum
 
 \setstretch{1.5}
 \section{Introduction}\label{introduction}
+
+\section{Literature Review}\label{literature-review}
+
+\citet{gurkaynak2005a}\strut \\
+\citet{ho2021}\strut \\
+\citet{gurkaynak2005}
 
 \section{Methodology}\label{methodology}
 
@@ -222,8 +240,202 @@ Ipsum
 \setcounter{figure}{0}
 \renewcommand{\thefigure}{A\arabic{figure}}
 
+\newpage
 
-\renewcommand\refname{Appendix}
+\section{Appendix}\label{appendix}
+
+\subsection{Repo Rate Path}\label{repo-rate-path}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics{monetary_policy_surprises_files/figure-pdf/fig-repo_rate_changes-1.pdf}
+
+}
+
+\caption{\label{fig-repo_rate_changes}Repo Rate Changes}
+
+\end{figure}%
+
+\newpage
+
+\subsection{Repo Rate Change Days}\label{repo-rate-change-days}
+
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
+
+\setlength{\tabcolsep}{0pt}
+
+\renewcommand*{\arraystretch}{0.55}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable}[l]{|p{1.50in}|p{1.45in}|p{1.93in}|p{1.66in}}
+
+\caption{\label{tbl-announcement_days}Repo Rate Change Days}
+
+\tabularnewline
+
+\ascline{0.75pt}{000000}{1-4}
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Date}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Repo\ Rate}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Change\ in\ Repo\ Rate}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Announcement}}}} \\
+
+\ascline{0.75pt}{000000}{1-4}\endfirsthead 
+
+\ascline{0.75pt}{000000}{1-4}
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Date}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Repo\ Rate}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Change\ in\ Repo\ Rate}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Announcement}}}} \\
+
+\ascline{0.75pt}{000000}{1-4}\endhead
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2010-03-26}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{6.5}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{-0.5}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Decrease}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2010-09-10}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{6.0}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{-0.5}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Decrease}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2010-11-19}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{5.5}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{-0.5}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Decrease}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2012-07-20}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{5.0}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{-0.5}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Decrease}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2014-01-30}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{5.5}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{0.5}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Increase}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2014-07-18}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{5.8}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{0.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Increase}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2015-07-24}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{6.0}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{0.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Increase}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2015-11-20}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{6.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{0.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Increase}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2016-01-29}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{6.8}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{0.5}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Increase}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2016-03-18}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{7.0}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{0.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Increase}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2017-07-21}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{6.8}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{-0.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Decrease}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2018-03-29}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{6.5}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{-0.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Decrease}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2018-11-23}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{6.8}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{0.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Increase}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2019-07-19}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{6.5}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{-0.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Decrease}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2020-01-17}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{6.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{-0.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Decrease}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2020-03-20}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{5.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{-1.0}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Decrease}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2020-04-15}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{4.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{-1.0}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Decrease}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2020-05-22}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{3.8}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{-0.5}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Decrease}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2020-07-24}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{3.5}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{-0.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Decrease}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2021-11-19}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{3.8}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{0.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Increase}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2022-01-28}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{4.0}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{0.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Increase}}}} \\
+
+\ascline{1pt}{FFFFFF}{1-4}
+
+
+
+\multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{2022-03-25}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{4.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{0.2}}}} & \multicolumn{1}{!{\color[HTML]{FFFFFF}\vrule width 1pt}>{\centering}m{\dimexpr 1.66in+0\tabcolsep}!{\color[HTML]{FFFFFF}\vrule width 1pt}}{\textcolor[HTML]{000000}{\fontsize{8}{16}\selectfont{\global\setmainfont{Times New Roman}{Increase}}}} \\
+
+\ascline{0.75pt}{000000}{1-4}
+
+
+\end{longtable}
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
+
+
 
 
 \end{document}

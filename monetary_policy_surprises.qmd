@@ -29,6 +29,7 @@ indent: TRUE
 
 ```{r}
 #| label: setup
+#| warning: FALSE
 
 options(scipen=999)
 knitr::opts_chunk$set(echo = FALSE, 
@@ -68,7 +69,7 @@ library(stargazer)
 
 ```{r}
 #| label: func
-source(here("Functions","flextable_word.R" ))
+source(here("Functions","flextable_pdf.R" ))
 source(here("Functions","modelsummary_pdf.R" ))
 source(here("Functions","borderlines.R" ))
 
@@ -82,6 +83,11 @@ set_flextable_defaults(font.size = 8,
 
 
 # Introduction
+
+# Literature Review
+@gurkaynak2005a \
+@ho2021 \
+@gurkaynak2005
 
 # Methodology
 
@@ -99,7 +105,6 @@ set_flextable_defaults(font.size = 8,
 ::: {#refs}
 :::
 
-
 \setcounter{section}{0}
 \renewcommand{\thesection}{\Alph{section}}
 
@@ -109,4 +114,45 @@ set_flextable_defaults(font.size = 8,
 \setcounter{figure}{0}
 \renewcommand{\thefigure}{A\arabic{figure}}
 
+\newpage
+
 # Appendix
+
+## Repo Rate Path
+
+```{r}
+#| label: fig-repo_rate_changes
+#| fig-cap: "Repo Rate Changes"
+#| fig-height: 4
+#| fig-width: 8
+#| cache: FALSE
+
+repo <- read_rds(here("Outputs", "artifacts_announcement_days.rds"))
+repo$plots$combined_gg
+
+```
+\newpage
+## Repo Rate Change Days
+
+```{r}
+#| label: tbl-announcement_days
+#| tbl-cap: "Repo Rate Change Days"
+#| cache: FALSE
+#| ft.arraystretch: .55
+
+announcement_days_tbl <- 
+  repo$data$announcement_days_tbl
+
+announcement_days_tbl %>%
+  mutate(Date = as.Date(Date)) %>%
+  flextable_pdf(
+    width_add = 2.5
+  )
+  
+
+```
+
+
+
+
+
