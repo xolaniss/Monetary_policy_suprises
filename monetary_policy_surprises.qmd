@@ -121,18 +121,30 @@ set_flextable_defaults(font.size = 8,
 ## Repo Rate Path
 
 ```{r}
+#| label: fig-repo_rate
+#| fig-cap: "Repo Rate Path"
+#| fig-height: 4
+#| fig-width: 8
+#| cache: FALSE
+
+repo <- read_rds(here("Outputs", "artifacts_announcement_days.rds"))
+repo$plots$daily_repo_gg
+
+```
+\newpage
+## Repo Rate Changes
+
+```{r}
 #| label: fig-repo_rate_changes
 #| fig-cap: "Repo Rate Changes"
 #| fig-height: 4
 #| fig-width: 8
 #| cache: FALSE
 
-repo <- read_rds(here("Outputs", "artifacts_announcement_days.rds"))
-repo$plots$combined_gg
-
+repo$plots$repo_changes_gg
 ```
+
 \newpage
-## Repo Rate Change Days
 
 ```{r}
 #| label: tbl-announcement_days
@@ -152,6 +164,7 @@ announcement_days_tbl %>%
 
 ```
 
+## Exchange rates
 
 
 
