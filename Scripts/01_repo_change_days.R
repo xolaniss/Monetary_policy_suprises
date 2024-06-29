@@ -70,20 +70,13 @@ announcement_days_vec <-
   ) 
 
 
-decision_vec <- announcement_days_vec %+time% "1 days"
-
-decision_tbl <- 
+announcement_days_tbl <- 
   daily_repo_changes_tbl %>%
-  dplyr::select(Date, `Change in Repo Rate`) %>%
+  filter(Date %in% announcement_days_vec) %>% 
+  mutate(`Change in Repo Rate` = `Repo Rate` - lag(`Repo Rate`, n = 1)) %>% 
   mutate(Decision = ifelse(`Change in Repo Rate` > 0, "Increase", "Decrease")) %>% 
   mutate(Decision = ifelse(`Change in Repo Rate` == 0, "No Change", Decision)) %>% 
-  filter(Date %in% decision_vec) %>% 
-  mutate(Date = Date %-time% "1 day") # to edit the next day holiday days manually
-
-announcement_days_tbl <- daily_repo_changes_tbl %>% 
-  dplyr::select(Date, `Repo Rate`) %>%
-  filter(Date %in% announcement_days_vec) %>% 
-  left_join(decision_tbl, by =  c("Date" = "Date"))
+  slice(-1)
 
 announcement_days_tbl
 

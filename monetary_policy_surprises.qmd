@@ -133,7 +133,7 @@ repo$plots$daily_repo_gg
 
 ```
 \newpage
-## Repo Rate Changes
+## Daily Repo Rate Changes
 
 ```{r}
 #| label: fig-repo_rate_changes
@@ -147,29 +147,27 @@ repo$plots$repo_changes_gg
 
 \newpage
 
+## Announcement Days
+
 ```{r}
 #| label: tbl-announcement_days
-#| tbl-cap: "Repo Rate Change Days"
+#| tbl-cap: "Announcement Days"
 #| cache: FALSE
-#| ft.arraystretch: .55
+#| ft.arraystretch: .4
 
 announcement_days_tbl <- 
   repo$data$announcement_days_tbl
 
 announcement_days_tbl %>%
-  mutate(Date = as.Date(Date)) %>%
   flextable_pdf(
     width_add = 2.5
   ) %>% 
   colformat_num(
     columns = 2:3,
     digits = 2
-  ) 
+  ) %>% 
+  align(align = "left", part = "all")
   
-  
-  
-  
-
 ```
 
 ## Exchange rates
