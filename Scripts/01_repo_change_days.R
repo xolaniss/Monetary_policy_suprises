@@ -45,7 +45,7 @@ daily_repo_tbl <-
 daily_repo_changes_tbl <- daily_repo_tbl %>%
   mutate(Date = as.Date(Date)) %>% 
   arrange(Date) %>%
-  mutate(`Change in Repo Rate` = `Repo Rate` - lag(`Repo Rate`, n = 1))
+  mutate(`Daily Change in Repo Rate` = `Repo Rate` - lag(`Repo Rate`, n = 1))
 daily_repo_changes_tbl %>% tail(10)
 
 # Announcement Days -------------------------------------------------------
@@ -73,6 +73,7 @@ announcement_days_vec <-
 announcement_days_tbl <- 
   daily_repo_changes_tbl %>%
   filter(Date %in% announcement_days_vec) %>% 
+  dplyr::select(-`Daily Change in Repo Rate`) %>% 
   mutate(`Change in Repo Rate` = `Repo Rate` - lag(`Repo Rate`, n = 1)) %>% 
   mutate(Decision = ifelse(`Change in Repo Rate` > 0, "Increase", "Decrease")) %>% 
   mutate(Decision = ifelse(`Change in Repo Rate` == 0, "No Change", Decision)) %>% 
@@ -93,7 +94,7 @@ daily_repo_gg <-
 
 repo_changes_gg <- 
   daily_repo_changes_tbl %>% 
-  ggplot(aes(x = Date, y = `Change in Repo Rate`)) +
+  ggplot(aes(x = Date, y = `Daily Change in Repo Rate`)) +
   geom_line(color = "black") +
   geom_point(color = "black") +
   labs(title = "Daily Repo Rate Changes",
