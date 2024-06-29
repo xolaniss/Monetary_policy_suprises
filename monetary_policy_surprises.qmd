@@ -30,6 +30,7 @@ indent: TRUE
 ```{r}
 #| label: setup
 #| warning: FALSE
+#| message: FALSE
 
 options(scipen=999)
 knitr::opts_chunk$set(echo = FALSE, 
@@ -159,7 +160,14 @@ announcement_days_tbl %>%
   mutate(Date = as.Date(Date)) %>%
   flextable_pdf(
     width_add = 2.5
-  )
+  ) %>% 
+  colformat_num(
+    columns = 2:3,
+    digits = 2
+  ) 
+  
+  
+  
   
 
 ```
