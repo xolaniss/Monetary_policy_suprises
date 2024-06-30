@@ -55,7 +55,7 @@ bonds <- c(
 
 paths <- map(bonds, ~here("Data", paste0(.x, ".xlsx")))
 
-bonds_list <-
+bonds_tbl <-
   paths %>% 
   set_names(bonds) %>%
   map(~ read_excel(path = ., skip = 6) %>% 
@@ -65,25 +65,30 @@ bonds_list <-
         mutate(Date = as.Date(Date)) %>% 
         arrange(Date) %>%
         filter(Date >= "2010-01-01") 
-        )
-
-# Cleaning -----------------------------------------------------------------
-
-
-# Transformations --------------------------------------------------------
-
-
-# EDA ---------------------------------------------------------------
-
+        ) %>% 
+  bind_rows(.id = "Bond") %>% 
+  relocate(Bond, .before = Date)
 
 # Graphing ---------------------------------------------------------------
+bonds_gg <- 
+  bonds_tbl %>% 
+  ggplot(aes(x = Date, y = Price, color = Bond)) +
+  geom_line() +
+  theme_minimal() +
+  labs(title = "Bond Yields",
+       x = "",
+       y = "Yield") +
+  theme(legend.position = "none") +
+  facet_wrap(~Bond, scales = "free_y") +
+  scale_color_manual(values = pnw_palette("Shuksan2", 12))
 
 
 # Export ---------------------------------------------------------------
-artifacts_ <- list (
-
+artifacts_bonds <- list (
+  bonds_tbl = bonds_tbl,
+  bonds_gg = bonds_gg
 )
 
-write_rds(artifacts_, file = here("Outputs", "artifacts_.rds"))
+write_rds(artifacts_bonds, file = here("Outputs", "artifacts_bonds.rds"))
 
 

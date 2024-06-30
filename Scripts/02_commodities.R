@@ -52,7 +52,7 @@ commodities <- c(
 
 paths <- map(commodities, ~here("Data", paste0(.x, ".xlsx")))
 
-commodities_list <-
+commodities_tbl <-
   paths %>% 
   set_names(commodities) %>%
   map(~ read_excel(path = ., skip = 6) %>% 
@@ -61,27 +61,34 @@ commodities_list <-
         mutate(`Date` = as.Date(`Date`)) %>% 
         arrange(Date) %>% 
         filter(Date >= "2010-01-01")
-      )
-
-commodities_list %>% bind_cols()
-
-# Cleaning -----------------------------------------------------------------
-
-
-# Transformations --------------------------------------------------------
-
-
-# EDA ---------------------------------------------------------------
+      ) %>%
+  bind_rows(.id = "Commodity") %>% 
+  relocate(Commodity, .after = Date) 
 
 
 # Graphing ---------------------------------------------------------------
+commodities_gg <- 
+  commodities_tbl %>% 
+  mutate(Commodity = str_replace_all(Commodity, "_spot", "")) %>%
+  mutate(Commodity = str_to_title(Commodity)) %>%
+  ggplot(aes(Date, Price, color = Commodity)) +
+  geom_line() +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  labs(title = "Commodities Prices",
+       x = "",
+       y = "Price",
+       ) +
+  facet_wrap(~Commodity, scales = "free_y") +
+  scale_color_manual(values = pnw_palette("Shuksan2", 10))
 
 
 # Export ---------------------------------------------------------------
-artifacts_ <- list (
-
+artifacts_commodities <- list (
+  commodities_tbl = commodities_tbl,
+  commodities_gg = commodities_gg
 )
 
-write_rds(artifacts_, file = here("Outputs", "artifacts_.rds"))
+write_rds(artifacts_commodities, file = here("Outputs", "artifacts_commodities.rds"))
 
 

@@ -90,7 +90,8 @@ daily_repo_gg <-
        x = " ",
        y = "Repo Rate") +
   theme_minimal() +
-  theme(legend.position = "none")
+  theme(legend.position = "none") +
+  scale_color_manual(values = pnw_palette("Shuksan2", 1))
 
 repo_changes_gg <- 
   daily_repo_changes_tbl %>% 
@@ -101,7 +102,8 @@ repo_changes_gg <-
        x = " ",
        y = "Change in Repo Rate") +
   theme_minimal() +
-  theme(legend.position = "none")
+  theme(legend.position = "none") +
+  scale_color_manual(values = pnw_palette("Shuksan2", 1))
 
 combined_gg <- daily_repo_gg + repo_changes_gg
 combined_gg

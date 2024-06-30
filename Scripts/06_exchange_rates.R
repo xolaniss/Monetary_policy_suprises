@@ -41,7 +41,7 @@ source(here("Functions", "fx_plot.R"))
 sheets <- excel_sheets(here("Data", "exchange_rates.xlsx"))
 sheet_list <- as.list(sheets)
 
-exchange_rate_list <- 
+exchange_rate_tbl <- 
   sheet_list %>% 
   set_names(sheets) %>% 
   map(
@@ -49,26 +49,35 @@ exchange_rate_list <-
       mutate(Date = as.Date(Date)) %>% 
       arrange(Date) %>% 
       rename(Price = Value)
-  )
+  ) %>% 
+  bind_rows(.id = "Exchange_rate") %>%
+  relocate(Exchange_rate, .after = Date)
 
-exchange_rate_list
-# Cleaning -----------------------------------------------------------------
-
-
-# Transformations --------------------------------------------------------
-
-
-# EDA ---------------------------------------------------------------
-
+exchange_rate_tbl
 
 # Graphing ---------------------------------------------------------------
-
+exchange_rate_gg <- 
+  exchange_rate_tbl %>% 
+  ggplot(aes(x = Date, y = Price, color = Exchange_rate)) +
+  geom_line() +
+  theme_minimal() +
+  labs(
+    title = " ",
+    x = "",
+    y = "Rate"
+  ) +
+  theme(legend.position = "none") +
+  facet_wrap(~Exchange_rate, scales = "free_y") +
+  scale_color_manual(values = pnw_palette("Shuksan2", 4))
+  
+  
 
 # Export ---------------------------------------------------------------
-artifacts_ <- list (
-
+artifacts_exchange_rates <- list (
+  exchange_rate_tbl = exchange_rate_tbl,
+  exchange_rate_gg = exchange_rate_gg
 )
 
-write_rds(artifacts_, file = here("Outputs", "artifacts_.rds"))
+write_rds(artifacts_exchange_rates, file = here("Outputs", "artifacts_exchange_rates.rds"))
 
 

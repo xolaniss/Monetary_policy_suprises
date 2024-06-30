@@ -124,7 +124,7 @@ set_flextable_defaults(font.size = 8,
 ```{r}
 #| label: fig-repo_rate
 #| fig-cap: "Repo Rate Path"
-#| fig-height: 4
+#| fig-height: 2
 #| fig-width: 8
 #| cache: FALSE
 
@@ -132,20 +132,20 @@ repo <- read_rds(here("Outputs", "artifacts_announcement_days.rds"))
 repo$plots$daily_repo_gg
 
 ```
-\newpage
+
 ## Daily Repo Rate Changes
 
 ```{r}
 #| label: fig-repo_rate_changes
 #| fig-cap: "Repo Rate Changes"
-#| fig-height: 4
+#| fig-height: 2
 #| fig-width: 8
 #| cache: FALSE
 
 repo$plots$repo_changes_gg
 ```
 
-\newpage
+
 
 ## Announcement Days
 
@@ -170,8 +170,81 @@ announcement_days_tbl %>%
   
 ```
 
+
 ## Exchange rates
 
+```{r}
+#| label: fig-exchange_rates
+#| fig-cap: "Exchange Rates"
+#| fig-height: 4
+#| fig-width: 8
+#| cache: FALSE
 
+exchange_rates <- read_rds(here("Outputs", "artifacts_exchange_rates.rds"))
+exchange_rates$exchange_rate_gg
+
+```
+
+
+## Commodities
+
+```{r}
+#| label: fig-commodities
+#| fig-cap: "Commodities"
+#| fig-height: 6
+#| fig-width: 8
+#| cache: FALSE
+
+commodities <- read_rds(here("Outputs", "artifacts_commodities.rds"))
+commodities$commodities_gg
+
+```
+
+
+## Stock Market
+
+```{r}
+#| label: fig-stock_market
+#| fig-cap: "Stock Market"
+#| fig-height: 2
+#| fig-width: 8
+#| cache: FALSE
+
+stock_market <- read_rds(here("Outputs", "artifacts_assets.rds"))
+stock_market$assets_gg
+
+```
+
+
+
+## Bonds
+
+```{r}
+#| label: fig-bonds
+#| fig-cap: "Bonds"
+#| fig-height: 6
+#| fig-width: 8
+#| cache: FALSE
+
+bonds <- read_rds(here("Outputs", "artifacts_bonds.rds"))
+bonds$bonds_gg
+
+```
+
+\newpage
+
+## Foward Rates
+
+```{r}
+#| label: fig-forward_rates
+#| fig-cap: "Forward Rates"
+#| fig-height: 4
+#| fig-width: 8
+#| cache: FALSE
+
+forward_rates <- read_rds(here("Outputs", "artifacts_forwards.rds"))
+forward_rates$forwards_gg
+
+```
 
 

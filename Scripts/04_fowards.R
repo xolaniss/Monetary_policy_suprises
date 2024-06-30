@@ -38,7 +38,7 @@ library(car)
 source(here("Functions", "fx_plot.R"))
 
 # Import -------------------------------------------------------------
-fowards <- c(
+forwards <- c(
   "ZAR1M",
   "ZAR2M",
   "ZAR3M",
@@ -47,35 +47,39 @@ fowards <- c(
   "ZAR1Y"
 )
 
-paths = map(fowards, ~here("Data", paste0(.x, ".xlsx")))
+paths = map(forwards, ~here("Data", paste0(.x, ".xlsx")))
 
-fowards_list <-
+forwards_tbl <-
   paths %>% 
   set_names(fowards) %>%
   map(~ read_excel(path = ., skip = 6) %>% 
         rename(`Price` = PX_LAST) %>% 
         arrange(Date)
-  )
+  ) %>% 
+  bind_rows(.id = "Foward") %>%
+  mutate(Date = as.Date(Date)) %>%
+  relocate(Foward, .after = Date)
         
-
-
-# Cleaning -----------------------------------------------------------------
-
-
-# Transformations --------------------------------------------------------
-
-
-# EDA ---------------------------------------------------------------
-
-
 # Graphing ---------------------------------------------------------------
-
+forwards_gg <- 
+  forwards_tbl %>%
+  ggplot(aes(x = Date, y = Price, color = Foward)) +
+  geom_line() +
+  labs(title = "Foward Rates",
+       x = "",
+       y = "Rates") +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  facet_wrap(~Foward, scales = "free_y") +
+  scale_color_manual(values = pnw_palette("Shuksan2", 6))
+  
 
 # Export ---------------------------------------------------------------
-artifacts_ <- list (
-
+artifacts_forwards <- list (
+  forwards_tbl = forwards_tbl,
+  forwards_gg = forwards_gg
 )
 
-write_rds(artifacts_, file = here("Outputs", "artifacts_.rds"))
+write_rds(artifacts_forwards, file = here("Outputs", "artifacts_forwards.rds"))
 
 
