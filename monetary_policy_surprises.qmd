@@ -145,7 +145,7 @@ repo$plots$daily_repo_gg
 repo$plots$repo_changes_gg
 ```
 
-
+\newpage
 
 ## Announcement Days
 
@@ -233,7 +233,7 @@ bonds$bonds_gg
 
 \newpage
 
-## Foward Rates
+## Forward Rates
 
 ```{r}
 #| label: fig-forward_rates

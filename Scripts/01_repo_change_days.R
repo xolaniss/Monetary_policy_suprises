@@ -85,26 +85,23 @@ announcement_days_tbl
 daily_repo_gg <- 
   daily_repo_tbl %>% 
   ggplot(aes(x = Date, y = `Repo Rate`)) +
-  geom_line(color = "black") +
+  geom_line(color = "#5d74a5") +
   labs(title = "Daily Repo Rate",
        x = " ",
        y = "Repo Rate") +
   theme_minimal() +
-  theme(legend.position = "none") +
-  scale_color_manual(values = pnw_palette("Shuksan2", 1))
+  theme(legend.position = "none") 
 
 repo_changes_gg <- 
   daily_repo_changes_tbl %>% 
   ggplot(aes(x = Date, y = `Daily Change in Repo Rate`)) +
-  geom_line(color = "black") +
-  geom_point(color = "black") +
+  geom_line(color = "#5d74a5") +
   labs(title = "Daily Repo Rate Changes",
        x = " ",
        y = "Change in Repo Rate") +
   theme_minimal() +
-  theme(legend.position = "none") +
-  scale_color_manual(values = pnw_palette("Shuksan2", 1))
-
+  theme(legend.position = "none")
+  
 combined_gg <- daily_repo_gg + repo_changes_gg
 combined_gg
 
