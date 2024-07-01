@@ -124,7 +124,7 @@ set_flextable_defaults(font.size = 8,
 ```{r}
 #| label: fig-repo_rate
 #| fig-cap: "Repo Rate Path"
-#| fig-height: 2
+#| fig-height: 4
 #| fig-width: 8
 #| cache: FALSE
 
@@ -138,7 +138,7 @@ repo$plots$daily_repo_gg
 ```{r}
 #| label: fig-repo_rate_changes
 #| fig-cap: "Repo Rate Changes"
-#| fig-height: 2
+#| fig-height: 4
 #| fig-width: 8
 #| cache: FALSE
 
